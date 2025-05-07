@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwbgmw0bme7hu"]
+
+[ext_resource type="PackedScene" uid="uid://buajw4ov16u3k" path="res://_scenes/attraction_point.tscn" id="1_s7isk"]
+[ext_resource type="Texture2D" uid="uid://d24j4nv73wk0c" path="res://_assets/mars.png" id="2_yyt01"]
+
+[node name="AttractionPoint" instance=ExtResource("1_s7isk")]
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.236458, 0.236458)
+texture = ExtResource("2_yyt01")

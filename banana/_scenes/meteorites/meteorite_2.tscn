@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://updh3dg1ir73"]
+
+[ext_resource type="PackedScene" uid="uid://b3yfr70ef1u5i" path="res://_scenes/meteorites/meteorite_.tscn" id="1_1m4pf"]
+
+[node name="Meteorite_2" instance=ExtResource("1_1m4pf")]
+angular_vel = 1.5
+max_linear_vel = 35.0
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(740.293, 558.057, 567.379, 432.736)
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-59, -36, -37, -52, -24, -52, -16, -55, 10, -47, 15, -39, 27, -37, 42, -26, 44, -16, 55, -8, 65, -3, 69, 4, 70, 21, 66, 30, 63, 32, 59, 41, 42, 50, 31, 48, 2, 53, -9, 53, -18, 50, -40, 25, -57, 19, -65, 5, -70, -9, -67, -24)
+
+[node name="CollisionPolygon2D" parent="Area2D" index="0"]
+polygon = PackedVector2Array(-59, -36, -37, -52, -24, -52, -16, -55, 10, -47, 15, -39, 27, -37, 42, -26, 44, -16, 55, -8, 65, -3, 69, 4, 70, 21, 66, 30, 63, 32, 59, 41, 42, 50, 31, 48, 2, 53, -9, 53, -18, 50, -40, 25, -57, 19, -65, 5, -70, -9, -67, -24)

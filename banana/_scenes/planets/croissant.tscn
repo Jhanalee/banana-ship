@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbqcu6y86eugu"]
+
+[ext_resource type="PackedScene" uid="uid://buajw4ov16u3k" path="res://_scenes/attraction_point.tscn" id="1_us6bk"]
+[ext_resource type="Script" uid="uid://b5vhbjsva03q" path="res://_scripts/attraction_point.gd" id="2_2di8o"]
+[ext_resource type="Texture2D" uid="uid://dhrsw28fhg4dh" path="res://_assets/dot.png" id="2_fh25e"]
+[ext_resource type="Script" uid="uid://wi5cvjjp3jl0" path="res://_scripts/rotating.gd" id="3_2di8o"]
+[ext_resource type="Texture2D" uid="uid://dhnbxy46l3tyv" path="res://_assets/attractive_area.png" id="4_w54g3"]
+
+[node name="Croissant" instance=ExtResource("1_us6bk")]
+script = ExtResource("2_2di8o")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = null
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.0869718, 0.0869718)
+texture = ExtResource("2_fh25e")
+script = ExtResource("3_2di8o")
+speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" index="1"]
+scale = Vector2(0.279542, 0.279542)
+texture = ExtResource("4_w54g3")

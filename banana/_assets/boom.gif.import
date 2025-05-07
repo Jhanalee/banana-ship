@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://bdu2cnys03v35"
+path="res://.godot/imported/boom.gif-19e241702236b54d5db25596d023aff0.tres"
+
+[deps]
+
+source_file="res://_assets/boom.gif"
+dest_files=["res://.godot/imported/boom.gif-19e241702236b54d5db25596d023aff0.tres"]
+
+[params]
+
+frames_per_second=30

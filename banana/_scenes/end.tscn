@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bexydtudi68yj"]
+
+[ext_resource type="Texture2D" uid="uid://b73esn68hy8r3" path="res://_assets/230268028_c58d078a-856c-4aed-9ff9-0bf536e245f2.jpg" id="1_75yvt"]
+[ext_resource type="PackedScene" uid="uid://d1de7xnim8dni" path="res://_scenes/planets/earth.tscn" id="2_jclhh"]
+[ext_resource type="Theme" uid="uid://cewttkoxxpysh" path="res://new_theme.tres" id="3_a6337"]
+[ext_resource type="Texture2D" uid="uid://cieb5j0ow6dg4" path="res://_assets/banana.png" id="3_m3e5g"]
+[ext_resource type="Script" uid="uid://wi5cvjjp3jl0" path="res://_scripts/rotating.gd" id="4_u6pt3"]
+
+[node name="End" type="Node2D"]
+
+[node name="230268028C58d078a-856c-4Aed-9Ff9-0Bf536e245f2" type="Sprite2D" parent="."]
+position = Vector2(26, 314)
+scale = Vector2(0.416762, 0.416762)
+texture = ExtResource("1_75yvt")
+
+[node name="Earth" parent="." instance=ExtResource("2_jclhh")]
+position = Vector2(584, 351)
+scale = Vector2(0.436578, 0.436578)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_a6337")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 492.0
+offset_top = 12.0
+offset_right = 668.0
+offset_bottom = 62.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "YOU WON"
+
+[node name="Node2D" type="Node2D" parent="Control"]
+position = Vector2(583, 342)
+scale = Vector2(0.4504, 0.4504)
+script = ExtResource("4_u6pt3")
+speed = 2.0
+
+[node name="Banana" type="Sprite2D" parent="Control/Node2D"]
+position = Vector2(-86.5896, 572.824)
+texture = ExtResource("3_m3e5g")

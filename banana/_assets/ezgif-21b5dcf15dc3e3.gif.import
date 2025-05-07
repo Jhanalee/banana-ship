@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://t5ecptwsnjv"
+path="res://.godot/imported/ezgif-21b5dcf15dc3e3.gif-76d221671049b0b489d15c65d0673ccd.tres"
+
+[deps]
+
+source_file="res://_assets/ezgif-21b5dcf15dc3e3.gif"
+dest_files=["res://.godot/imported/ezgif-21b5dcf15dc3e3.gif-76d221671049b0b489d15c65d0673ccd.tres"]
+
+[params]
+
+frames_per_second=30

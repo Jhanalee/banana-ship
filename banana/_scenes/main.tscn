@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://pdvda2si7ilu"]
+
+[ext_resource type="Script" uid="uid://borbf1o8wblnh" path="res://_scripts/main.gd" id="1_lavtb"]
+[ext_resource type="PackedScene" uid="uid://bl3rcw3hq2gsn" path="res://_scenes/player.tscn" id="1_x6rnu"]
+[ext_resource type="Texture2D" uid="uid://brax5oixlwv1" path="res://_assets/arrow.png" id="3_x8ak3"]
+[ext_resource type="Script" uid="uid://gob6ukibbq8t" path="res://_scripts/meteorite_container.gd" id="4_lavtb"]
+[ext_resource type="Script" uid="uid://dt8sc7qthk804" path="res://_scenes/arrow.gd" id="4_li8c7"]
+[ext_resource type="PackedScene" uid="uid://updh3dg1ir73" path="res://_scenes/meteorites/meteorite_2.tscn" id="5_ce27d"]
+[ext_resource type="PackedScene" uid="uid://2fji76wna1" path="res://_scenes/meteorites/meteorite_1.tscn" id="6_urak4"]
+[ext_resource type="PackedScene" uid="uid://hvnh5mrgxlki" path="res://_scenes/meteorites/meteorite_3.tscn" id="7_7kglf"]
+[ext_resource type="PackedScene" uid="uid://cxvuw7f36nbcn" path="res://_scenes/meteorites/meteorite_4.tscn" id="8_g15ir"]
+[ext_resource type="PackedScene" uid="uid://chddetl8xuh6c" path="res://_scenes/meteorites/meteorite_5.tscn" id="9_44f6i"]
+[ext_resource type="PackedScene" uid="uid://bbqcu6y86eugu" path="res://_scenes/planets/croissant.tscn" id="10_7kglf"]
+[ext_resource type="Script" uid="uid://mdsufrvkx6gr" path="res://_scenes/ui.gd" id="11_g15ir"]
+[ext_resource type="Theme" uid="uid://cewttkoxxpysh" path="res://new_theme.tres" id="12_6glfe"]
+[ext_resource type="PackedScene" uid="uid://d1de7xnim8dni" path="res://_scenes/planets/earth.tscn" id="12_44f6i"]
+[ext_resource type="Texture2D" uid="uid://b73esn68hy8r3" path="res://_assets/230268028_c58d078a-856c-4aed-9ff9-0bf536e245f2.jpg" id="12_eulei"]
+[ext_resource type="Script" uid="uid://cfopucrtgm1et" path="res://_scenes/health_bar.gd" id="13_li8c7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8ak3"]
+bg_color = Color(0.103744, 0.103744, 0.103743, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li8c7"]
+bg_color = Color(0.819608, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 20
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lavtb")
+
+[node name="Player" parent="." instance=ExtResource("1_x6rnu")]
+unique_name_in_owner = true
+rotation = 1.5708
+linear_velocity = Vector2(50, 0)
+angular_velocity = 0.20944
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+
+[node name="arrow" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -300)
+scale = Vector2(0.052, 0.052)
+texture = ExtResource("3_x8ak3")
+script = ExtResource("4_li8c7")
+
+[node name="MeteoriteContainer" type="Node2D" parent="."]
+script = ExtResource("4_lavtb")
+meteorite_scenes = Array[PackedScene]([ExtResource("6_urak4"), ExtResource("5_ce27d"), ExtResource("7_7kglf"), ExtResource("8_g15ir"), ExtResource("9_44f6i")])
+
+[node name="Meteorite1" parent="MeteoriteContainer" instance=ExtResource("6_urak4")]
+position = Vector2(-568, 329)
+
+[node name="Meteorite_3" parent="MeteoriteContainer" instance=ExtResource("7_7kglf")]
+position = Vector2(1059, -554)
+
+[node name="Meteorite_5" parent="MeteoriteContainer" instance=ExtResource("9_44f6i")]
+position = Vector2(1022, 841)
+
+[node name="Croissant" parent="." instance=ExtResource("10_7kglf")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_6glfe")
+script = ExtResource("11_g15ir")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 25.0
+offset_right = 143.0
+offset_bottom = 52.0
+theme_override_styles/background = SubResource("StyleBoxFlat_x8ak3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_li8c7")
+step = 1.0
+value = 100.0
+script = ExtResource("13_li8c7")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="Earth" parent="." instance=ExtResource("12_44f6i")]
+position = Vector2(26473, -12813)
+scale = Vector2(1.91574, 1.91574)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(3500, 2000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-307, 276)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_eulei")
+flip_h = true
+region_rect = Rect2(0, 0, 502, 240)
+
+[connection signal="ded" from="Player" to="." method="_on_player_ded"]
+[connection signal="health_change" from="Player" to="CanvasLayer/UI" method="_on_player_health_change"]
+[connection signal="health_change" from="Player" to="CanvasLayer/UI/HealthBar" method="_on_player_health_change"]
+[connection signal="win" from="Player" to="." method="_on_player_win"]

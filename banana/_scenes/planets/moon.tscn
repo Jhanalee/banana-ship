@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqfdhnkgs5tg"]
+
+[ext_resource type="PackedScene" uid="uid://buajw4ov16u3k" path="res://_scenes/attraction_point.tscn" id="1_eh25f"]
+[ext_resource type="Texture2D" uid="uid://ddhanxghyx5oj" path="res://_assets/moon.png" id="2_kha31"]
+
+[node name="Moon" instance=ExtResource("1_eh25f")]
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.185455, 0.185455)
+texture = ExtResource("2_kha31")
+
+[node name="Area2D" parent="." index="2"]
+gravity_point_unit_distance = 140.0
+gravity = 200.0

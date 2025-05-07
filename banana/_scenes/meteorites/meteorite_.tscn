@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3yfr70ef1u5i"]
+
+[ext_resource type="Script" uid="uid://b5nunkvuc7is" path="res://_scripts/meteorite.gd" id="1_oyxbh"]
+[ext_resource type="Texture2D" uid="uid://ce2ahwntf2ckd" path="res://_assets/asteroids.png" id="2_oyxbh"]
+
+[node name="Meteorite_" type="RigidBody2D"]
+mass = 200.0
+angular_velocity = 0.0110828
+script = ExtResource("1_oyxbh")
+angular_vel = 1.0
+max_linear_vel = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_oyxbh")
+region_enabled = true
+region_rect = Rect2(127, 1005, 582, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2(0.9, 0.9)
